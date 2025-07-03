@@ -1,6 +1,12 @@
+# Data Handling
 pandas
 numpy
-vectorbt
 tqdm
 tabulate
+
+# Finance
+pandas_ta
 yfinance
+
+# Backtesting
+vectorbt

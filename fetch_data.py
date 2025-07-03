@@ -13,7 +13,6 @@ INTERVALS = {
 
 df = pd.read_csv(r'data/ind_nifty500list.csv')
 tickers = [f"{symbol}.NS" for symbol in df['Symbol']]
-tickers=tickers[:5]
 
 for interval in INTERVALS:
     # 2. Download daily OHLCV data
