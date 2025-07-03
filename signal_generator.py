@@ -33,8 +33,6 @@ master_df.columns.names = ['Ticker', 'Field']
 SYMBOLS = master_df.columns.get_level_values('Ticker').unique().tolist()
 START_DATE = master_df.index.min().strftime('%Y-%m-%d')
 END_DATE = master_df.index.max().strftime('%Y-%m-%d')
-MAX_CAPITAL = 100000# acc. to user
-MAX_POSITIONS = 5# acc. to user
 
 # 3. Build Portfolio Signals DataFrame with Limits
 dates = pd.date_range(start=START_DATE, end=END_DATE, freq=TIMEFRAME)
