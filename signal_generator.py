@@ -7,12 +7,12 @@ import os
 import strategy
 
 # 2. Load consolidated OHLC data based on timeframe
-BASE_DIR = 'data'
+BASE_DIR = 'data/niftysmallcap100'
 TIMEFRAME='D'
 df_paths = {
-    'D': os.path.join(BASE_DIR, 'nifty500_daily_ohlcv.csv'),
-    'W': os.path.join(BASE_DIR, 'nifty500_weekly_ohlcv.csv'),
-    'M': os.path.join(BASE_DIR, 'nifty500_monthly_ohlcv.csv')
+    'D': os.path.join(BASE_DIR, 'niftysmallcap100_daily_ohlcv.csv'),
+    'W': os.path.join(BASE_DIR, 'niftysmallcap100_weekly_ohlcv.csv'),
+    'M': os.path.join(BASE_DIR, 'niftysmallcap100_monthly_ohlcv.csv')
 }
 
 if TIMEFRAME not in df_paths:
