@@ -81,20 +81,34 @@ def st_ema_strategy(symbol, master_df, START_DATE, END_DATE):
     return sig, close
 
 
-
 def triple_supertrend_strategy(symbol, master_df, START_DATE, END_DATE):
-    df = master_df[symbol].loc[START_DATE:END_DATE]
+    df = master_df[symbol].loc[START_DATE:END_DATE].copy()
     close = df['Close']
-    df.columns = df.columns.get_level_values(0)
-    supertrend_1=(df.ta.supertrend(length=10,multiplier=1,append=True))["SUPERTd_10_1.0"]
-    supertrend_2=(df.ta.supertrend(length=11,multiplier=2,append=True))["SUPERTd_11_2.0"]
-    supertrend_3=(df.ta.supertrend(length=12,multiplier=3,append=True))["SUPERTd_12_3.0"]
+    high = df['High']
+    low = df['Low']
+
+    # Compute multiple Supertrend indicators
+    supertrend_1 = df.ta.supertrend(high=high, low=low, close=close, length=10, multiplier=1)["SUPERTd_10_1.0"]
+    supertrend_2 = df.ta.supertrend(high=high, low=low, close=close, length=11, multiplier=2)["SUPERTd_11_2.0"]
+    supertrend_3 = df.ta.supertrend(high=high, low=low, close=close, length=12, multiplier=3)["SUPERTd_12_3.0"]
+
+    # Initialize signal series
     sig = pd.Series(0, index=close.index)
-    cross_up=True if (supertrend_1==1)+(supertrend_2==1)+(supertrend_3==1)>=2 else False
-    cross_down=True if (supertrend_1==-1)+(supertrend_2==-1)+(supertrend_3==-1)>=2 else False
-    sig.loc[cross_up]=1
-    sig.loc[cross_down]=-1
-    return sig,close
+
+    # Calculate bullish and bearish agreement (at least 2 out of 3 indicators)
+    bullish_agreement = ((supertrend_1 == 1).astype(int) +
+                         (supertrend_2 == 1).astype(int) +
+                         (supertrend_3 == 1).astype(int)) >= 2
+
+    bearish_agreement = ((supertrend_1 == -1).astype(int) +
+                         (supertrend_2 == -1).astype(int) +
+                         (supertrend_3 == -1).astype(int)) >= 2
+
+    # Assign signals
+    sig[bullish_agreement] = 1
+    sig[bearish_agreement] = -1
+
+    return sig, close
 
 
 def adx_moving_average_strategy(symbol, master_df, START_DATE, END_DATE):

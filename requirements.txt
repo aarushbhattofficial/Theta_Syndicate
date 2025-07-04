@@ -1,8 +1,14 @@
+# Jupyter
+ipykernel
+plotly>=5.0.0
+nbformat>=4.2.0
+
 # Data Handling
 pandas
 numpy
 tqdm
 tabulate
+
 
 # Finance
 pandas_ta

@@ -41,7 +41,8 @@ raw_signals = {}#raw dataframe to be processed
 raw_prices = {}
 
 for sym in SYMBOLS:
-    sig, price = strategy.macd_strategy(sym, master_df, START_DATE, END_DATE) # strategy function imported from the module
+    # IMPORT A DIFFERENT FUNCTION IN THE NEXT LINE TO CHANGE THE STRATEGY USED
+    sig, price = strategy.adx_moving_average_strategy(sym, master_df, START_DATE, END_DATE) # strategy function imported from the module
     raw_signals[sym] = sig.reindex(dates, fill_value=0)
     raw_prices[sym] = price.reindex(dates).ffill()
 raw_signals = pd.DataFrame(raw_signals)# these signals are only created based on strategy and are not till now limited.

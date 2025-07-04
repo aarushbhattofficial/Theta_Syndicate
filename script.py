@@ -5,7 +5,7 @@ import numpy as np
 class Strategy():
     
    signalsData = signalsData = pd.read_csv(
-        'daily_signals.csv', #replace with your file path
+        'auxilary/backtester_weights.csv', #replace with your file path
         na_values=['nan', 'NaN', ''],
         keep_default_na=True
     )
