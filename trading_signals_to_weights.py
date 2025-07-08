@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 
 # Read your signals CSV, assuming the first column is 'date'
-portfolio_signals_df = pd.read_csv(r'auxilary/trading_signals.csv', index_col=0, parse_dates=True)
-max_positions = 10  # change accordingly
+portfolio_signals_df = pd.read_csv(r'Theta_Syndicate/auxilary/trading_signals.csv', index_col=0, parse_dates=True)
+max_positions = 40  # change accordingly
 
 def calculate_weights(signals_df, max_positions):
     current_positions = set()  # Track held tickers
@@ -46,5 +46,5 @@ def calculate_weights(signals_df, max_positions):
     weights_df = pd.DataFrame(weights_history, index=signals_df.index)
     return weights_df
 
-calculated_weights_df = calculate_weights(portfolio_signals_df, max_positions=10)
-calculated_weights_df.to_csv('auxilary/backtester_weights.csv')
+calculated_weights_df = calculate_weights(portfolio_signals_df, max_positions)
+calculated_weights_df.to_csv('Theta_Syndicate/auxilary/backtester_weights.csv')

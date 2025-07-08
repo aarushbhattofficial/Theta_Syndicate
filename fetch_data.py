@@ -5,13 +5,13 @@ from datetime import datetime
 START_DATE = "2015-01-01"
 END_DATE = datetime.today().strftime('%Y-%m-%d')
 INTERVALS = {
-    '1d': 'data/niftymicrocap250/niftymicrocap250_daily_ohlcv.csv',
-    '1wk': 'data/niftymicrocap250/niftymicrocap250_weekly_ohlcv.csv',
-    '1mo': 'data/niftymicrocap250/niftymicrocap250_monthly_ohlcv.csv'
+    '1d': 'Theta_Syndicate/data/nifty500/nifty500_daily_ohlcv.csv',
+    '1wk': 'Theta_Syndicate/data/nifty500/nifty500_weekly_ohlcv.csv',
+    '1mo': 'Theta_Syndicate/data/nifty500/nifty500_monthly_ohlcv.csv'
 }
 
 
-df = pd.read_csv(r'data/niftymicrocap250/ind_niftymicrocap250list.csv')
+df = pd.read_csv(r'Theta_Syndicate/data/nifty500/ind_nifty500list.csv')
 tickers = [f"{symbol}.NS" for symbol in df['Symbol']]
 
 for interval in INTERVALS:

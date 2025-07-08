@@ -7,7 +7,7 @@ import os
 import strategy
 
 # 2. Load consolidated OHLC data based on timeframe
-BASE_DIR = 'data/niftysmallcap100'
+BASE_DIR = 'Theta_Syndicate/data/niftysmallcap100'
 TIMEFRAME='D'
 df_paths = {
     'D': os.path.join(BASE_DIR, 'niftysmallcap100_daily_ohlcv.csv'),
@@ -42,12 +42,12 @@ raw_prices = {}
 
 for sym in SYMBOLS:
     # IMPORT A DIFFERENT FUNCTION IN THE NEXT LINE TO CHANGE THE STRATEGY USED
-    sig, price = strategy.adx_moving_average_strategy(sym, master_df, START_DATE, END_DATE) # strategy function imported from the module
+    sig, price = strategy.triple_supertrend_strategy(sym, master_df, START_DATE, END_DATE) # strategy function imported from the module
     raw_signals[sym] = sig.reindex(dates, fill_value=0)
     raw_prices[sym] = price.reindex(dates).ffill()
 raw_signals = pd.DataFrame(raw_signals)# these signals are only created based on strategy and are not till now limited.
 raw_prices = pd.DataFrame(raw_prices)
 
-raw_signals.to_csv('auxilary/trading_signals.csv')
+raw_signals.to_csv('Theta_Syndicate/auxilary/trading_signals.csv')
 print("Saved trading_signals.csv with shape", raw_signals.shape)
 
