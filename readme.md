@@ -11,15 +11,15 @@ A one‑stop Jupyter notebook pipeline for backtesting z‑score–based momentu
 ├── all.ipynb                # Main notebook to run end‑to‑end
 ├── data/                    # Historical OHLCV CSVs for various indices
 ├── auxiliary/               # Precomputed signals & weights
-│   ├── backtester\_weights.csv
-│   └── trading\_signals.csv
-├── split\_ohlcv\_data/        # Per‑symbol CSVs for Open/High/Low/Close/Volume
-│   ├── all\_open.csv
-│   ├── all\_close.csv
+│   ├── backtester_weights.csv
+│   └── trading_signals.csv
+├── split_ohlcv_data/        # Per‑symbol CSVs for Open/High/Low/Close/Volume
+│   ├── all_open.csv
+│   ├── all_close.csv
 │   └── …
-├── z\_scores.csv             # Raw z‑scores for the selected universe
-├── z\_scores\_mean.csv        # Rolling‑mean z‑scores
-├── functions\_.py            # Helper functions & class definitions
+├── z_scores.csv             # Raw z‑scores for the selected universe
+├── z_scores_mean.csv        # Rolling‑mean z‑scores
+├── functions_.py            # Helper functions & class definitions
 ├── results/                 # Output files & plots from the backtester
 └── README.md                # This file
 ```
