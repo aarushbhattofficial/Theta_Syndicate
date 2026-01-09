@@ -1,6 +1,6 @@
 # macOS system files
 .DS_Store
-split_ohlcv_data/
+./split_ohlcv_data/
 results/
 .vscode/
 __pycache__/
