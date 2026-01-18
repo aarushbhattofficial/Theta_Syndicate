@@ -1,3 +1,4 @@
-rolling_period,mean_period,rolling_threshold,dilute_to,Total Return [%],Max Drawdown [%],Sharpe Ratio,skip_weeks,use_id_filter,id_percentile
-52,52,-99999,15,830.6202406592306,35.80914148235617,1.866322392352607,4,True,50
-52,52,-99999,15,673.8340539981702,35.54923731099104,1.7051917007517825,4,True,30
+rolling_period,mean_period,rolling_threshold,dilute_to,Total Return [%],Max Drawdown [%],Sharpe Ratio,skip_weeks,use_id_filter,id_percentile,benchmark_exit_multiplier
+52,52,-99999,15,1557.2712767171108,36.09350462190929,2.0689892346883787,4,True,50.0,0.75
+52,52,-99999,15,1321.2439502502095,43.828872860130836,1.8884981773959904,4,True,30.0,0.75
+52,52,-99999,15,1237.97467583465,33.960637016905544,1.8857254695486951,4,False,,0.75
